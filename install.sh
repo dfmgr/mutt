@@ -181,7 +181,7 @@ fi
 
 run_postinst() {
   dfmgr_run_post
-  if cmd_exists mbsync && [ -f "$HOME/.mbsyncrc" ]; then
+  if __am_i_online && cmd_exists mbsync && [ -f "$HOME/.mbsyncrc" ]; then
     mbsync -Ca
   fi
 }
