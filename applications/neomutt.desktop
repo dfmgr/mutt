@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
-Name=Mail
+Name=NeoMutt
 Exec=myterminal -e neomutt %u
