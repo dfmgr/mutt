@@ -5,7 +5,7 @@ NeoMutt is a command line mail reader
 Automatic install/update:
 
 ```shell
-bash -c "$(curl -LSs https://github.com/dfmgr/neomutt/raw/master/install.sh)"
+bash -c "$(curl -LSs https://github.com/dfmgr/neomutt/raw/main/install.sh)"
 ```
 
 Manual install:
