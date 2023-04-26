@@ -141,6 +141,9 @@ __run_prepost_install() {
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # run after primary post install function
 __run_post_install() {
+  if am_i_online && cmd_exists mbsync && [ -f "$HOME/.mbsyncrc" ]; then
+    mbsync -Ca
+  fi
 
   return ${?:-0}
 }
