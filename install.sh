@@ -175,6 +175,9 @@ RUBY_GEMS=""
 PYTHON_PIP=""
 PHP_COMPOSER=""
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Run custom actions
+{ __cmd_exists mutt || __cmd_exists neomutt; } && GLOBAL_OS_PACKAGES="${GLOBAL_OS_PACKAGES//neomutt/}"
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Show a custom message after install
 __run_post_message() {
   true
@@ -198,7 +201,7 @@ __run_prepost_install() {
 __run_post_install() {
   local getRunStatus=0
   if __am_i_online && __cmd_exists mbsync && [ -f "$HOME/.mbsyncrc" ]; then
-    mbsync -Ca
+    mbsync -Ca && notifications "$APPNAME" "📬 Mailboxes have been synced"
   fi
   return $getRunStatus
 }
